@@ -1,39 +1,27 @@
 const express = require("express");
-const Playlist = require("../models/playlistModel");
+const {
+  createPlaylist,
+  getPlaylist,
+  getPlaylists,
+  deletePlaylist,
+  updatePlaylist,
+} = require("../controllers/playlistController");
 
 const router = express.Router();
 
 // GET all playlists
-router.get("/", (req, res) => {
-  res.json({ mssg: "GET all playlists" });
-});
+router.get("/", getPlaylists);
 
 // GET a playlist
-router.get("/:id", (req, res) => {
-  res.json({ mssg: "GET a playlist" });
-});
+router.get("/:id", getPlaylist);
 
 // POST a playlist
-router.post("/", async (req, res) => {
-  const { title } = req.body;
-
-  try {
-    const playlist = await Playlist.create({ title });
-    res.status(200).json(playlist);
-  } catch (error) {
-    res.status(400).json({ error: error.message });
-  }
-  // res.json({ mssg: "POST a playlist" });
-});
+router.post("/", createPlaylist);
 
 // DELETE a playlist
-router.delete("/:id", (req, res) => {
-  res.json({ mssg: "DELETE a playlist" });
-});
+router.delete("/:id", deletePlaylist);
 
 // UPDATE a playlist
-router.patch("/:id", (req, res) => {
-  res.json({ mssg: "UPDATE a playlist" });
-});
+router.patch("/:id", updatePlaylist);
 
 module.exports = router;
