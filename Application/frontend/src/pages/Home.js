@@ -9,15 +9,17 @@ import {
 const Home = () => {
   return (
     <div className="container">
-      <Link to="/search">
-        <FontAwesomeIcon icon={faMagnifyingGlass} size="2x" />
-      </Link>
-      <Link to="/songs">
-        <FontAwesomeIcon icon={faMusic} size="3x" />
-      </Link>
-      <Link to="/playlists">
-        <FontAwesomeIcon icon={faList} size="2x" />
-      </Link>
+      <div className="menu">
+        <Link to="/search">
+          <FontAwesomeIcon icon={faMagnifyingGlass} size="2x" />
+        </Link>
+        <Link to="/songs">
+          <FontAwesomeIcon icon={faMusic} size="3x" />
+        </Link>
+        <Link to="/playlists">
+          <FontAwesomeIcon icon={faList} size="2x" />
+        </Link>
+      </div>
     </div>
   );
 };

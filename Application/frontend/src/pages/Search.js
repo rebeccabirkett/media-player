@@ -1,13 +1,12 @@
-import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHome } from "@fortawesome/free-solid-svg-icons";
+import NavBar from "../components/NavBar";
+import Heading from "../components/Heading";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
 const Search = () => {
   return (
     <div className="container">
-      <Link to="/">
-        <FontAwesomeIcon icon={faHome} />
-      </Link>
+      <NavBar />
+      <Heading iconname={faMagnifyingGlass} title={"Search"} />
     </div>
   );
 };
