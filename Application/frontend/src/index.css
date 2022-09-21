@@ -11,6 +11,11 @@ body {
   margin: 0;
   /* font-family: "Poppins"; */
 }
+.pages {
+  max-width: 400px;
+  padding: 50px;
+  margin: 0 auto;
+}
 .container {
   max-width: 250px;
   height: 300px;
@@ -44,8 +49,11 @@ body {
 .headicon {
   padding-right: 10px;
 }
-.pages {
-  max-width: 400px;
-  padding: 20px;
-  margin: 0 auto;
+.song-details {
+  background: #fff;
+  border-radius: 4px;
+  margin: 0px auto;
+  padding: 5px;
+  position: relative;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.05);
 }

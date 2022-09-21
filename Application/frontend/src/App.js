@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import Search from "./pages/Search";
 import Songs from "./pages/Songs";
 import Playlists from "./pages/Playlists";
+import MusicPlayer from "./pages/MusicPlayer";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
             <Route path="/search" element={<Search />} />
             <Route path="/songs" element={<Songs />} />
             <Route path="/playlists" element={<Playlists />} />
+            <Route path="/player" element={<MusicPlayer />} />
           </Routes>
         </div>
       </BrowserRouter>

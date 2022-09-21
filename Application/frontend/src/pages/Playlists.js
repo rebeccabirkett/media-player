@@ -1,10 +1,10 @@
-import NavBar from "../components/NavBar";
 import { useEffect, useState } from "react";
 import { faList } from "@fortawesome/free-solid-svg-icons";
 
 // components
-import PlaylistDetails from "../components/PlaylistDetails";
+import NavBar from "../components/NavBar";
 import Heading from "../components/Heading";
+import PlaylistDetails from "../components/PlaylistDetails";
 
 const Playlists = () => {
   const [playlists, setPlaylists] = useState(null);
