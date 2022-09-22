@@ -9,6 +9,7 @@ const songRoutes = require("./routes/songs");
 const app = express();
 
 // middleware
+app.use("/musicfiles", express.static("../frontend/musicfiles"));
 app.use(express.json());
 app.use((req, res, next) => {
   console.log(req.path, req.method);

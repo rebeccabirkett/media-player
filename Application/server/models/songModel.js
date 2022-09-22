@@ -24,6 +24,10 @@ const songSchema = new Schema(
       type: String,
       required: true,
     },
+    filename: {
+      type: String,
+      required: true,
+    },
   },
   { timestamps: true }
 );

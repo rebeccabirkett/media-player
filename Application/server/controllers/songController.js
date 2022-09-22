@@ -13,7 +13,7 @@ const getSong = async (req, res) => {
   const { id } = req.params;
 
   if (!mongoose.Types.ObjectId.isValid(id)) {
-    return res.status(404).json({ error: "no such song" });
+    return res.status(400).json({ error: "no such song" });
   }
 
   const song = await Song.findById(id);
@@ -27,11 +27,18 @@ const getSong = async (req, res) => {
 
 // create new song
 const createSong = async (req, res) => {
-  const { id, title, artist, album, image } = req.body;
+  const { id, title, artist, album, image, filename } = req.body;
 
   // add doc to db
   try {
-    const song = await Song.create({ id, title, artist, album, image });
+    const song = await Song.create({
+      id,
+      title,
+      artist,
+      album,
+      image,
+      filename,
+    });
     res.status(200).json(song);
   } catch (error) {
     res.status(400).json({ error: error.message });

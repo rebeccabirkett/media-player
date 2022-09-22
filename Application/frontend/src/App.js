@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 // pages and components
 import Home from "./pages/Home";
@@ -10,17 +10,25 @@ import MusicPlayer from "./pages/MusicPlayer";
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
+      <Router>
         <div className="pages">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/search" element={<Search />} />
-            <Route path="/songs" element={<Songs />} />
-            <Route path="/playlists" element={<Playlists />} />
-            <Route path="/player" element={<MusicPlayer />} />
-          </Routes>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route exact path="/search">
+            <Search />
+          </Route>
+          <Route exact path="/songs">
+            <Songs />
+          </Route>
+          <Route exact path="/playlists">
+            <Playlists />
+          </Route>
+          <Route exact path="/player/:id">
+            <MusicPlayer />
+          </Route>
         </div>
-      </BrowserRouter>
+      </Router>
     </div>
   );
 }

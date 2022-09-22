@@ -1,12 +1,16 @@
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+
+// components
 import NavBar from "../components/NavBar";
 import Heading from "../components/Heading";
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import AllSongs from "../components/AllSongs";
 
 const Search = () => {
   return (
     <div className="container">
       <NavBar />
       <Heading iconname={faMagnifyingGlass} title={"Search"} />
+      <AllSongs />
     </div>
   );
 };
