@@ -3,6 +3,8 @@ import { withRouter } from "react-router-dom";
 // components
 import NavBar from "../components/NavBar";
 import ReactPlayer from "react-player";
+import { faPause, faPlay } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class MusicPlayer extends Component {
   constructor(props) {
@@ -11,8 +13,15 @@ class MusicPlayer extends Component {
       error: null,
       isLoaded: false,
       song: {},
+      playing: true,
+      played: 0,
     };
   }
+
+  //  button handlers
+  handlePlayPause = () => {
+    this.setState({ playing: !this.state.playing });
+  };
 
   componentDidMount() {
     const { id } = this.props.match.params; //();
@@ -35,15 +44,25 @@ class MusicPlayer extends Component {
   }
 
   render() {
+    const { playing } = this.state;
     const musicFile = `/musicfiles/${this.state.song.filename}`;
     if (this.state.isLoaded && this.state.song) {
       return (
         <div className="container">
           <NavBar />
+          <button onClick={this.handlePlayPause}>
+            {playing ? (
+              <FontAwesomeIcon icon={faPause} />
+            ) : (
+              <FontAwesomeIcon icon={faPlay} />
+            )}
+          </button>
           <ReactPlayer
             url={musicFile}
-            controls
+            playing={playing}
+            onSeek={(e) => console.log("onSeek", e)}
             onError={console.log("react player error", this)}
+            controls
           />
         </div>
       );
