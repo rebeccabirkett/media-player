@@ -6,6 +6,7 @@ import Search from "./pages/Search";
 import Songs from "./pages/Songs";
 import Playlists from "./pages/Playlists";
 import MusicPlayer from "./pages/MusicPlayer";
+import NewPlaylist from "./pages/NewPlaylist";
 
 function App() {
   return (
@@ -23,6 +24,9 @@ function App() {
           </Route>
           <Route exact path="/playlists">
             <Playlists />
+          </Route>
+          <Route exact path="/newplaylist">
+            <NewPlaylist />
           </Route>
           <Route exact path="/player/:id">
             <MusicPlayer />

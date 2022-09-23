@@ -3,7 +3,7 @@ import { withRouter } from "react-router-dom";
 // components
 import NavBar from "../components/NavBar";
 import ReactPlayer from "react-player";
-import { faPause, faPlay } from "@fortawesome/free-solid-svg-icons";
+import { faHome, faPause, faPlay } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class MusicPlayer extends Component {
@@ -49,7 +49,7 @@ class MusicPlayer extends Component {
     if (this.state.isLoaded && this.state.song) {
       return (
         <div className="container">
-          <NavBar />
+          <NavBar lefticonname={faHome} />
           <button onClick={this.handlePlayPause}>
             {playing ? (
               <FontAwesomeIcon icon={faPause} />

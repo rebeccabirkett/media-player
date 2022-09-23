@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { faList } from "@fortawesome/free-solid-svg-icons";
+import { faList, faHome, faPlus } from "@fortawesome/free-solid-svg-icons";
 
 // components
 import NavBar from "../components/NavBar";
@@ -23,7 +23,12 @@ const Playlists = () => {
 
   return (
     <div className="container">
-      <NavBar />
+      <NavBar
+        lefticonname={faHome}
+        leftroute={"/"}
+        righticonname={faPlus}
+        rightroute={"/newplaylist"}
+      />
       <Heading iconname={faList} title={"My Playlists"} />
       <div className="playlists">
         {playlists &&

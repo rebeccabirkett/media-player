@@ -1,4 +1,4 @@
-import { faMusic } from "@fortawesome/free-solid-svg-icons";
+import { faHome, faMusic } from "@fortawesome/free-solid-svg-icons";
 
 // components
 import NavBar from "../components/NavBar";
@@ -8,7 +8,7 @@ import AllSongs from "../components/AllSongs";
 const Songs = () => {
   return (
     <div className="container">
-      <NavBar />
+      <NavBar lefticonname={faHome} />
       <Heading iconname={faMusic} title={"All Songs"} />
       <AllSongs />
     </div>
