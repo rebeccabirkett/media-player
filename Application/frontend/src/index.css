@@ -1,5 +1,5 @@
 /* google font */
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap");
 
 /* layout */
 :root {
@@ -50,6 +50,11 @@ body {
 .headicon {
   padding-right: 10px;
 }
+
+.songs {
+  overflow-y: scroll;
+  height: 210px;
+}
 .song-details {
   background: #fff;
   border-radius: 4px;
@@ -60,22 +65,61 @@ body {
 }
 
 .button {
-  width: 250px;
+  width: 230px;
   height: 40px;
   margin: 5px auto;
   display: flex;
+}
+
+.button p {
+  margin: 0px;
+  font-size: 14px;
 }
 
 .button > .album-art {
   width: 40px;
   height: 40px;
   margin-right: 8px;
-  background-color: red;
+  background-image: url("../musicfiles/default.png");
+  background-size: contain;
 }
 
-.button > .button-column {
-  font-size: 12px;
-  width: 210px;
-  height: 40px;
-  background-color: blue;
+.player {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 250px;
+  height: 280px;
+}
+
+.player-album-art {
+  width: 130px;
+  height: 130px;
+  background-image: url("../musicfiles/default.png");
+  background-size: contain;
+  border-radius: 50%;
+  margin-top: 10px;
+}
+
+.player-song-info {
+  display: flex;
+  flex-direction: column;
+  max-width: 250px;
+  max-height: 65px;
+  margin: 20px 0px 20px 0px;
+}
+
+.player-song-info p {
+  margin: 0px auto;
+  overflow: hidden;
+}
+
+.player-title {
+  font-size: 22px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.player-artist-album {
+  font-size: 16px;
 }

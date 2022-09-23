@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import React, { useEffect } from "react";
+import { usePlaylistsContext } from "../hooks/usePlaylistsContext";
 import { faList, faHome, faPlus } from "@fortawesome/free-solid-svg-icons";
 
 // components
@@ -7,18 +8,19 @@ import Heading from "../components/Heading";
 import PlaylistDetails from "../components/PlaylistDetails";
 
 const Playlists = () => {
-  const [playlists, setPlaylists] = useState(null);
+  const { playlists, dispatch } = usePlaylistsContext();
   useEffect(() => {
     const fetchPlaylists = async () => {
       const response = await fetch("/api/playlists");
       const json = await response.json();
 
       if (response.ok) {
-        setPlaylists(json);
+        dispatch({ type: "SET_PLAYLISTS", payload: json });
       }
     };
 
     fetchPlaylists();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

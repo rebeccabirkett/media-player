@@ -1,12 +1,14 @@
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheck, faHome, faList } from "@fortawesome/free-solid-svg-icons";
+import { faCheck, faHome, faPlus } from "@fortawesome/free-solid-svg-icons";
+import { usePlaylistsContext } from "../hooks/usePlaylistsContext";
 
 // components
 import NavBar from "../components/NavBar";
 import Heading from "../components/Heading";
 
 const NewPlaylist = () => {
+  const { dispatch } = usePlaylistsContext();
   const [title, setTitle] = useState("");
   const [error, setError] = useState(null);
 
@@ -31,13 +33,14 @@ const NewPlaylist = () => {
       setTitle("");
       setError(null);
       console.log("new playlist added", json);
+      dispatch({ type: "CREATE_PLAYLIST", payload: json });
     }
   };
 
   return (
     <div className="container">
-      <NavBar lefticonname={faHome} />
-      <Heading iconname={faList} title={"Add Playlist"} />
+      <NavBar lefticonname={faHome} leftroute={"/"} rightroute={"/"} />
+      <Heading iconname={faPlus} title={"Add Playlist"} />
       <form className="create" onSubmit={handleSubmit}>
         <label>Name:</label>
         <input
@@ -48,6 +51,7 @@ const NewPlaylist = () => {
         <button>
           <FontAwesomeIcon icon={faCheck} />
         </button>
+        {error && <div className="error">{error}</div>}
       </form>
     </div>
   );

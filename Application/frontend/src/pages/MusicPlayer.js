@@ -3,7 +3,12 @@ import { withRouter } from "react-router-dom";
 // components
 import NavBar from "../components/NavBar";
 import ReactPlayer from "react-player";
-import { faHome, faPause, faPlay } from "@fortawesome/free-solid-svg-icons";
+import {
+  faHome,
+  faPause,
+  faPlay,
+  faSearch,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class MusicPlayer extends Component {
@@ -44,19 +49,34 @@ class MusicPlayer extends Component {
   }
 
   render() {
+    console.debug("song: ", this.props.song);
     const { playing } = this.state;
     const musicFile = `/musicfiles/${this.state.song.filename}`;
     if (this.state.isLoaded && this.state.song) {
       return (
         <div className="container">
-          <NavBar lefticonname={faHome} />
-          <button onClick={this.handlePlayPause}>
-            {playing ? (
-              <FontAwesomeIcon icon={faPause} />
-            ) : (
-              <FontAwesomeIcon icon={faPlay} />
-            )}
-          </button>
+          <NavBar
+            lefticonname={faHome}
+            leftroute={"/"}
+            righticonname={faSearch}
+            rightroute={"/search"}
+          />
+          <div className="player">
+            <div className="player-album-art" />
+            <div className="player-song-info">
+              <p className="player-title">{this.state.song.title}</p>
+              <p className="player-artist-album">
+                {this.state.song.artist} | {this.state.song.album}
+              </p>
+            </div>
+            <button className="player-play" onClick={this.handlePlayPause}>
+              {playing ? (
+                <FontAwesomeIcon icon={faPause} />
+              ) : (
+                <FontAwesomeIcon icon={faPlay} />
+              )}
+            </button>
+          </div>
           <ReactPlayer
             url={musicFile}
             playing={playing}
