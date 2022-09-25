@@ -1,4 +1,6 @@
 import { usePlaylistsContext } from "../hooks/usePlaylistsContext";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
 const PlaylistDetails = ({ playlist }) => {
   const { dispatch } = usePlaylistsContext();
@@ -17,7 +19,9 @@ const PlaylistDetails = ({ playlist }) => {
   return (
     <div className="playlist-details">
       <h4>{playlist.title}</h4>
-      <span onClick={handleClick}>delete</span>
+      <span onClick={handleClick}>
+        <FontAwesomeIcon icon={faTimes} />
+      </span>
     </div>
   );
 };

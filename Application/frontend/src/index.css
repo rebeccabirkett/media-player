@@ -51,6 +51,14 @@ body {
   padding-right: 10px;
 }
 
+.playlist-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 230px;
+  height: 60px;
+}
+
 .songs {
   overflow-y: scroll;
   height: 210px;

@@ -7,7 +7,7 @@ import {
 // components
 import NavBar from "../components/NavBar";
 import Heading from "../components/Heading";
-import AllSongs from "../components/AllSongs";
+import SearchBar from "../components/SearchBar";
 
 const Search = () => {
   return (
@@ -19,7 +19,7 @@ const Search = () => {
         rightroute={"/"}
       />
       <Heading iconname={faMagnifyingGlass} title={"Search"} />
-      <AllSongs />
+      <SearchBar />
     </div>
   );
 };
