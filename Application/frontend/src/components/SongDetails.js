@@ -10,7 +10,7 @@ class SongDetails extends Component {
       <Link to={href} className="button">
         <div className="album-art">{this.props.song.image}</div>
         <div className="button-column">
-          <p>{this.props.song.title}</p>
+          <p className="title">{this.props.song.title}</p>
           <p>{this.props.song.artist}</p>
         </div>
       </Link>

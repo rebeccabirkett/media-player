@@ -10,6 +10,7 @@ const PlaylistDetails = ({ playlist }) => {
       method: "DELETE",
     });
     const json = await response.json();
+    console.log(response);
 
     if (response.ok) {
       dispatch({ type: "DELETE_PLAYLIST", payload: json });
@@ -17,12 +18,14 @@ const PlaylistDetails = ({ playlist }) => {
   };
 
   return (
-    <div className="playlist-details">
-      <h4>{playlist.title}</h4>
-      <span onClick={handleClick}>
-        <FontAwesomeIcon icon={faTimes} />
-      </span>
-    </div>
+    <button>
+      <div className="playlist-details">
+        <h4>{playlist.title}</h4>
+        <span onClick={handleClick}>
+          <FontAwesomeIcon icon={faTimes} />
+        </span>
+      </div>
+    </button>
   );
 };
 
