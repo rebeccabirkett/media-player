@@ -122,8 +122,6 @@ class MusicPlayer extends Component {
             playing={playing}
             onSeek={(e) => console.log("onSeek", e)}
             loop={loop}
-            // onError={console.log("react player error", this)}
-            // controls
           />
         </div>
       );

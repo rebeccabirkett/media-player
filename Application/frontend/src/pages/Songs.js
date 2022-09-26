@@ -1,4 +1,4 @@
-import { faHome, faMusic, faShuffle } from "@fortawesome/free-solid-svg-icons";
+import { faHome, faMusic } from "@fortawesome/free-solid-svg-icons";
 
 // components
 import NavBar from "../components/NavBar";

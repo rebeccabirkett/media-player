@@ -32,15 +32,17 @@ const Playlists = () => {
         rightroute={"/newplaylist"}
       />
       <Heading iconname={faList} title={"My Playlists"} />
-      <div className="playlists">
-        {playlists &&
-          playlists.map((playlist) => (
-            <PlaylistDetails
-              key={playlist._id}
-              playlist={playlist}
-              playlists={playlists}
-            />
-          ))}
+      <div className="playlist-container">
+        <div className="playlists">
+          {playlists &&
+            playlists.map((playlist) => (
+              <PlaylistDetails
+                key={playlist._id}
+                playlist={playlist}
+                playlists={playlists}
+              />
+            ))}
+        </div>
       </div>
     </div>
   );

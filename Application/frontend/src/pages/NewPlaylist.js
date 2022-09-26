@@ -33,7 +33,6 @@ const NewPlaylist = () => {
     if (response.ok) {
       setTitle("");
       setError(null);
-      console.log("new playlist added", json);
       dispatch({ type: "CREATE_PLAYLIST", payload: json });
     }
   };
@@ -43,16 +42,16 @@ const NewPlaylist = () => {
       <NavBar lefticonname={faHome} leftroute={"/"} rightroute={"/"} />
       <Heading iconname={faPlus} title={"Add Playlist"} />
       <form className="create" onSubmit={handleSubmit}>
-        <label>Name:</label>
+        <label>Name: </label>
         <input
           type="text"
           onChange={(e) => setTitle(e.target.value)}
           value={title}
         />
-        <AllSongs />
         <button className="confirm">
           <FontAwesomeIcon icon={faCheck} />
         </button>
+        <AllSongs />
         {error && <div className="error">{error}</div>}
       </form>
     </div>
