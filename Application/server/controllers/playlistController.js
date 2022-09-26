@@ -27,11 +27,11 @@ const getPlaylist = async (req, res) => {
 
 // create new playlist
 const createPlaylist = async (req, res) => {
-  const { title } = req.body;
+  const { title, songs } = req.body;
 
   // add doc to db
   try {
-    const playlist = await Playlist.create({ title });
+    const playlist = await Playlist.create({ title, songs });
     res.status(200).json(playlist);
   } catch (error) {
     res.status(400).json({ error: error.message });
@@ -69,12 +69,15 @@ const updatePlaylist = async (req, res) => {
       ...req.body,
     }
   );
-
   if (!playlist) {
-    return res.status(400).json({ error: "No such playlist" });
+    return res.status(400).json({ error: "Could not update playlist" });
+  }
+  const returnPlaylist = await Playlist.findById(id);
+  if (!returnPlaylist) {
+    return res.status(400).json({ error: "Could not get playlist to return" });
   }
 
-  res.status(200).json(playlist);
+  res.status(200).json(returnPlaylist);
 };
 
 module.exports = {

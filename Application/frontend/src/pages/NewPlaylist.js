@@ -6,6 +6,7 @@ import { usePlaylistsContext } from "../hooks/usePlaylistsContext";
 // components
 import NavBar from "../components/NavBar";
 import Heading from "../components/Heading";
+import AllSongs from "../components/AllSongs";
 
 const NewPlaylist = () => {
   const { dispatch } = usePlaylistsContext();
@@ -48,7 +49,8 @@ const NewPlaylist = () => {
           onChange={(e) => setTitle(e.target.value)}
           value={title}
         />
-        <button>
+        <AllSongs />
+        <button className="confirm">
           <FontAwesomeIcon icon={faCheck} />
         </button>
         {error && <div className="error">{error}</div>}

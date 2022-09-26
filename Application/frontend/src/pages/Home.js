@@ -10,13 +10,13 @@ const Home = () => {
   return (
     <div className="container">
       <div className="menu">
-        <Link to="/search">
+        <Link to="/search" className="menu-btn">
           <FontAwesomeIcon icon={faMagnifyingGlass} size="2x" />
         </Link>
-        <Link to="/songs">
+        <Link to="/songs" className="menu-btn" id="songs">
           <FontAwesomeIcon icon={faMusic} size="3x" />
         </Link>
-        <Link to="/playlists">
+        <Link to="/playlists" className="menu-btn">
           <FontAwesomeIcon icon={faList} size="2x" />
         </Link>
       </div>

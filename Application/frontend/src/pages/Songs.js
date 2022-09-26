@@ -8,12 +8,7 @@ import AllSongs from "../components/AllSongs";
 const Songs = () => {
   return (
     <div className="container">
-      <NavBar
-        lefticonname={faHome}
-        leftroute={"/"}
-        righticonname={faShuffle}
-        rightroute={"/"}
-      />
+      <NavBar lefticonname={faHome} leftroute={"/"} />
       <Heading iconname={faMusic} title={"All Songs"} />
       <AllSongs />
     </div>

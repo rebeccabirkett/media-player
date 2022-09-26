@@ -7,7 +7,10 @@ import {
   faHome,
   faPause,
   faPlay,
+  faRepeat,
   faSearch,
+  faShuffle,
+  fa1,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -20,12 +23,37 @@ class MusicPlayer extends Component {
       song: {},
       playing: true,
       played: 0,
+      loop: false,
     };
   }
 
   //  button handlers
   handlePlayPause = () => {
     this.setState({ playing: !this.state.playing });
+  };
+
+  handleToggleLoop = () => {
+    this.setState({ loop: !this.state.loop });
+  };
+
+  handleShuffle = () => {
+    fetch(`/api/song/`)
+      .then((res) => res.json())
+      .then(
+        (result) => {
+          this.setState({
+            isLoaded: true,
+            song: result,
+            playing: true,
+          });
+        },
+        (error) => {
+          this.setState({
+            isLoaded: true,
+            error,
+          });
+        }
+      );
   };
 
   componentDidMount() {
@@ -50,7 +78,7 @@ class MusicPlayer extends Component {
 
   render() {
     console.debug("song: ", this.props.song);
-    const { playing } = this.state;
+    const { playing, loop } = this.state;
     const musicFile = `/musicfiles/${this.state.song.filename}`;
     if (this.state.isLoaded && this.state.song) {
       return (
@@ -69,20 +97,33 @@ class MusicPlayer extends Component {
                 {this.state.song.artist} | {this.state.song.album}
               </p>
             </div>
-            <button className="player-play" onClick={this.handlePlayPause}>
-              {playing ? (
-                <FontAwesomeIcon icon={faPause} />
-              ) : (
-                <FontAwesomeIcon icon={faPlay} />
-              )}
-            </button>
+            <div className="player-controls">
+              <span className="player-loop" onClick={this.handleToggleLoop}>
+                {loop ? (
+                  <FontAwesomeIcon icon={fa1} />
+                ) : (
+                  <FontAwesomeIcon icon={faRepeat} />
+                )}
+              </span>
+              <span className="player-play" onClick={this.handlePlayPause}>
+                {playing ? (
+                  <FontAwesomeIcon icon={faPause} size="2x" />
+                ) : (
+                  <FontAwesomeIcon icon={faPlay} size="2x" />
+                )}
+              </span>
+              <span className="player-shuffle" onClick={this.handleShuffle}>
+                <FontAwesomeIcon icon={faShuffle} />
+              </span>
+            </div>
           </div>
           <ReactPlayer
             url={musicFile}
             playing={playing}
             onSeek={(e) => console.log("onSeek", e)}
-            onError={console.log("react player error", this)}
-            controls
+            loop={loop}
+            // onError={console.log("react player error", this)}
+            // controls
           />
         </div>
       );

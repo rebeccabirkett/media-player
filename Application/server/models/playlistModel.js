@@ -8,6 +8,10 @@ const playlistSchema = new Schema(
       type: String,
       required: true,
     },
+    songs: {
+      type: [{ type: mongoose.Schema.Types.ObjectId }],
+      required: false,
+    },
   },
   { timestamps: true }
 );

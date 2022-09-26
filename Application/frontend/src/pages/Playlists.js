@@ -35,7 +35,11 @@ const Playlists = () => {
       <div className="playlists">
         {playlists &&
           playlists.map((playlist) => (
-            <PlaylistDetails key={playlist._id} playlist={playlist} />
+            <PlaylistDetails
+              key={playlist._id}
+              playlist={playlist}
+              playlists={playlists}
+            />
           ))}
       </div>
     </div>
